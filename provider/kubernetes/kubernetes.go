@@ -141,7 +141,7 @@ func (p *Provider) Provide(configurationChan chan<- types.ConfigMessage, pool *s
 			}
 
 			eventsChanToRead := eventsChan
-			throttleDuration := time.Duration(p.ThrottleDuration)
+			throttleDuration := 10 * time.Second
 			if throttleDuration > 0 {
 				// Create a buffered channel to hold the pending event (if we're
 				// delaying processing the event due to throttling)
